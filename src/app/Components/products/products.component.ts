@@ -93,7 +93,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
      ).subscribe(data=>{
 
       this.productData = data;
-      console.log(this.productData);
+      // console.log(this.productData);
       
       this.tableData = data;
       //        //Set the quantity and Totall price in firestore 
@@ -167,7 +167,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
       this.lastInResponse = response[response.length - 1].payload.doc;  // it consist of last data
       
       this.tableData = [];                        
-      console.log(this.tableData);
+      // console.log(this.tableData);
       
       for (let item of response) {
         this.tableData.push(item.payload.doc.data());      // to store filtered(first 10 data) data on array 
@@ -201,6 +201,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
         for (let item of response.docs) {
           this.tableData.push(item.data());
         }
+        window.scroll(0,0);
+
         //Maintaing page no.
         this.pagination_clicked_count--;
 
@@ -232,7 +234,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
         for (let item of response.docs) {
           this.tableData.push(item.data())
         }
-
+        window.scroll(0,0);
         this.pagination_clicked_count++;
 
         this.push_prev_startAt(this.firstInResponse);
